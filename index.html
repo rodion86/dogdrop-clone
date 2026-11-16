@@ -1552,8 +1552,8 @@
       <div class="acc-admin">
         <div class="acc-row" style="border-bottom:none"><span>Доступ</span><b id="accAdminState">Игрок</b></div>
         <div class="promo-row" id="accAdminCodeRow">
-          <input type="text" id="adminCode" placeholder="Код администратора" maxlength="20" autocomplete="off">
-          <button class="btn btn-ghost" id="adminCodeApply">Войти</button>
+          <input type="text" id="adminCode" placeholder="Получить бонус" maxlength="20" autocomplete="off">
+          <button class="btn btn-soft" id="adminCodeApply">Получить</button>
         </div>
       </div>
     </div>
@@ -3497,7 +3497,7 @@
     $('#adminStats').textContent = fmt(state.balance) + ' ₽ · ' + state.inventory.length + ' предметов';
   }
   function openAdminPanel() {
-    if (!state.admin) { toast('Сначала введите код администратора', 'err'); return; }
+    if (!state.admin) { toast('Сначала введите бонус-код', 'err'); return; }
     renderAdminPanel();
     openModal('adminModal');
   }
@@ -3557,9 +3557,9 @@
   }
   function submitAdminCode() {
     const raw = $('#adminCode').value.trim();
-    if (!raw) { toast('Введите код администратора', 'err'); return; }
+    if (!raw) { toast('Введите бонус-код', 'err'); return; }
     const name = adminByCode(raw);
-    if (!name) { toast('Код не найден', 'err'); return; }
+    if (!name) { toast('Бонус-код не найден', 'err'); return; }
     grantAdmin(name);
   }
   $('#adminCodeApply').addEventListener('click', submitAdminCode);
