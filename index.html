@@ -692,6 +692,40 @@
   .acc-row:last-child{border-bottom:none}
   .acc-row b{color:#e9ebf2;font-size:12.5px;font-weight:800;text-align:right;word-break:break-all}
   .acc-row b.acc-mail{color:var(--acc)}
+  .bonus-cta{width:100%;display:flex;align-items:center;gap:12px;padding:13px 14px;margin-top:10px;border-radius:14px;border:1px solid rgba(255,168,38,.3);background:radial-gradient(150px 90px at 8% 0%,rgba(255,168,38,.24),transparent 72%),linear-gradient(135deg,#221b0e,#151720 70%);text-align:left;position:relative;overflow:hidden;transition:.18s}
+  .bonus-cta::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.13) 50%,transparent 70%);transform:translateX(-120%);transition:.5s}
+  .bonus-cta:hover{transform:translateY(-1px);border-color:rgba(255,200,92,.55);box-shadow:0 12px 30px rgba(255,138,0,.14)}
+  .bonus-cta:hover::after{transform:translateX(120%)}
+  .bonus-cta:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+  .bonus-cta:disabled::after{display:none}
+  .bonus-cta .bi{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,var(--acc-2),var(--acc-deep));color:#1a1204;flex:none;box-shadow:0 6px 18px rgba(255,138,0,.3)}
+  .bonus-cta b{display:block;font-size:17px;font-weight:800;letter-spacing:.2px;color:var(--acc-2);line-height:1.2}
+  .bonus-cta small{display:block;font-size:11px;color:var(--muted);margin-top:1px}
+  .bonus-cta .go{margin-left:auto;color:var(--acc);flex:none}
+
+  /* ================= ADMIN ================= */
+  .acc-admin{border-top:1px solid var(--line);margin-top:6px;padding-top:4px}
+  .acc-admin .promo-row{margin:8px 0 0}
+  .admin-role{display:inline-flex;align-items:center;padding:2px 7px;border-radius:6px;background:rgba(255,168,38,.14);border:1px solid rgba(255,168,38,.3);color:var(--acc-2);font-size:9.5px;font-weight:800;letter-spacing:.7px;vertical-align:2px;margin-left:6px}
+  .admin-user{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:linear-gradient(135deg,rgba(255,168,38,.12),rgba(255,168,38,.02));border:1px solid rgba(255,168,38,.22);margin-bottom:12px}
+  .admin-user-ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:rgba(255,168,38,.16);color:var(--acc-2);flex:none}
+  .admin-user b{display:block;font-size:13px}
+  .admin-user small{display:block;font-size:11px;color:var(--muted)}
+  .admin-user .btn{margin-left:auto;flex:none}
+  .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .admin-box{border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.025);padding:12px}
+  .admin-box h4{font-size:10.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--dim);margin-bottom:9px}
+  .admin-box p{font-size:10.5px;color:var(--dim);margin-top:7px;line-height:1.5}
+  .admin-row{display:flex;gap:6px}
+  .admin-input{flex:1;min-width:0;height:36px;background:#0f1117;border:1px solid var(--line);border-radius:8px;padding:0 10px;font-size:12px;font-weight:700;outline:none}
+  .admin-input:focus{border-color:rgba(255,168,38,.4)}
+  .admin-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+  .admin-actions .btn{padding:8px 10px;font-size:11.5px;border-radius:8px}
+  .btn-danger{background:rgba(255,86,102,.12);border-color:rgba(255,86,102,.3);color:#ff8b96}
+  .btn-danger:hover{background:rgba(255,86,102,.2);transform:translateY(-1px)}
+  .admin-box.danger{border-color:rgba(255,86,102,.22);background:rgba(255,86,102,.035)}
+  @media(max-width:640px){.admin-grid{grid-template-columns:1fr}}
+
   .login-avatar{width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#ffd27a,#ff9f1a);display:grid;place-items:center;font-size:10px;font-weight:800;color:#171005;flex:none}
   .login-mail{max-width:148px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
   .nav-right #loginBtn.is-logged{padding:8px 12px}
@@ -983,6 +1017,7 @@
         <svg class="ic"><use href="#i-bag"/></svg>
         <span class="badge" id="invCount">2</span>
       </button>
+      <button class="icon-btn" id="adminBtnTop" title="Админ-панель" style="display:none"><svg class="ic"><use href="#i-shield"/></svg></button>
       <button class="btn btn-steam btn-sm" id="loginBtn"><svg class="ic-sm"><use href="#i-steam"/></svg> <span>Войти</span></button>
       <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
@@ -994,6 +1029,7 @@
       <button data-open="digging"><svg class="ic"><use href="#i-shovel"/></svg> Раскопки</button>
       <button data-open="calendar"><svg class="ic"><use href="#i-calendar"/></svg> Календарь</button>
       <button data-open="how"><svg class="ic"><use href="#i-info"/></svg> Как это работает</button>
+      <button id="adminBtnMobile" style="display:none"><svg class="ic"><use href="#i-shield"/></svg> Админ-панель</button>
       <div class="mm-actions">
         <button class="btn btn-primary btn-sm" data-open="deposit">Пополнить баланс</button>
         <button class="btn btn-ghost btn-sm" data-drawer>Инвентарь</button>
@@ -1369,7 +1405,7 @@
           <div class="upg-wheel-in">
             <span class="upg-pct" id="upChance">0.00%</span>
             <span class="upg-wheel-lbl">Шанс Апгрейда</span>
-            <span class="upg-wheel-logo" aria-hidden="true">koch<b>DROP</b></span>
+            <span class="upg-wheel-logo" aria-hidden="true">Full<b>Drop</b></span>
           </div>
         </div>
         <button class="upg-run" id="upBtn" disabled><span class="upg-run-title">Апгрейд</span><small id="upBtnSub">Выберите предметы</small></button>
@@ -1508,9 +1544,82 @@
       <div class="acc-row"><span>Баланс</span><b id="accBalance">0 ₽</b></div>
       <div class="acc-row"><span>Предметов в инвентаре</span><b id="accItems">0</b></div>
       <div class="acc-row"><span>Возраст</span><b>18+ подтверждено</b></div>
+      <button class="bonus-cta" id="bonusBtn" type="button">
+        <span class="bi"><svg class="ic"><use href="#i-gift"/></svg></span>
+        <span><b>bonus</b><small id="bonusHint">Забрать 5 000 ₽ · раз в 24 часа</small></span>
+        <svg class="ic-sm go"><use href="#i-arrow"/></svg>
+      </button>
+      <div class="acc-admin">
+        <div class="acc-row" style="border-bottom:none"><span>Доступ</span><b id="accAdminState">Игрок</b></div>
+        <div class="promo-row" id="accAdminCodeRow">
+          <input type="text" id="adminCode" placeholder="Код администратора" maxlength="20" autocomplete="off">
+          <button class="btn btn-ghost" id="adminCodeApply">Войти</button>
+        </div>
+      </div>
     </div>
     <div class="modal-foot">
+      <button class="btn btn-soft" id="adminOpenBtn" style="display:none"><svg class="ic-sm"><use href="#i-shield"/></svg> Админ-панель</button>
       <button class="btn btn-ghost" id="logoutBtn">Выйти из аккаунта</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ADMIN MODAL ===== -->
+<div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+  <div class="modal-card md">
+    <div class="modal-head">
+      <div><h3 id="adminTitle">Админ-панель <span class="admin-role">ADMIN</span></h3><p>Полный доступ к демо-состоянию</p></div>
+      <button class="modal-close" data-close aria-label="Закрыть"><svg class="ic-sm"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="admin-user">
+        <span class="admin-user-ic"><svg class="ic"><use href="#i-shield"/></svg></span>
+        <span><b id="adminWho">—</b><small id="adminStats">—</small></span>
+        <button class="btn btn-ghost btn-sm" id="adminLogout">Выйти</button>
+      </div>
+      <div class="admin-grid">
+        <div class="admin-box">
+          <h4>Баланс</h4>
+          <div class="admin-row">
+            <input class="admin-input" id="adminBalance" type="number" min="0" step="100" placeholder="Сумма" inputmode="numeric">
+            <button class="btn btn-primary btn-sm" id="adminSetBalance">Задать</button>
+          </div>
+          <div class="admin-actions">
+            <button class="btn btn-ghost" data-admin-add="10000">+10 000 ₽</button>
+            <button class="btn btn-ghost" data-admin-add="100000">+100 000 ₽</button>
+            <button class="btn btn-ghost" data-admin-add="1000000">+1 000 000 ₽</button>
+          </div>
+        </div>
+        <div class="admin-box">
+          <h4>Выдать предмет</h4>
+          <div class="admin-actions">
+            <button class="btn btn-ghost" id="adminSkinAny">Случайный скин</button>
+            <button class="btn btn-ghost" id="adminSkinKnife">Нож</button>
+            <button class="btn btn-ghost" id="adminSkinGloves">Перчатки</button>
+            <button class="btn btn-ghost" id="adminSkinTop">Топ-скин</button>
+          </div>
+          <p>Предмет сразу появится в инвентаре.</p>
+        </div>
+        <div class="admin-box">
+          <h4>Быстрые действия</h4>
+          <div class="admin-actions">
+            <button class="btn btn-ghost" id="adminResetCooldown">Сбросить кулдаун</button>
+            <button class="btn btn-ghost" id="adminClearInv">Очистить инвентарь</button>
+            <button class="btn btn-ghost" id="adminResetPromo">Сбросить промокод</button>
+            <button class="btn btn-ghost" id="adminResetBonus">Сбросить бонус</button>
+          </div>
+        </div>
+        <div class="admin-box danger">
+          <h4>Опасная зона</h4>
+          <div class="admin-actions">
+            <button class="btn btn-danger" id="adminResetAll">Сбросить всё демо</button>
+          </div>
+          <p>Удалит баланс, инвентарь, аккаунт и настройки.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" data-close>Закрыть</button>
     </div>
   </div>
 </div>
@@ -1951,7 +2060,7 @@
     { id: 'seed-1', name: 'AK-47 | Неоновый рассвет', weapon: 'AK-47', type: 'rifle', rarity: 'rare', price: 1450 },
     { id: 'seed-2', name: 'USP-S | Иней', weapon: 'USP-S', type: 'pistol', rarity: 'uncommon', price: 320 }
   );
-  const defaults = { balance: 5000, inventory: seedItems, logged: false, email: '', ageOk: false, depositCooldownUntil: 0, streak: 0, lastClaim: '', promoUsed: false };
+  const defaults = { balance: 5000, inventory: seedItems, logged: false, email: '', ageOk: false, depositCooldownUntil: 0, streak: 0, lastClaim: '', promoUsed: false, admin: false, adminName: '', lastBonusAt: 0 };
   function loadState() {
     try {
       const raw = localStorage.getItem(KEY);
@@ -1966,7 +2075,10 @@
         depositCooldownUntil: Number(s.depositCooldownUntil) || 0,
         streak: Number(s.streak) || 0,
         lastClaim: typeof s.lastClaim === 'string' ? s.lastClaim : '',
-        promoUsed: !!s.promoUsed
+        promoUsed: !!s.promoUsed,
+        admin: !!s.admin,
+        adminName: typeof s.adminName === 'string' ? s.adminName : '',
+        lastBonusAt: Number(s.lastBonusAt) || 0
       };
     } catch (e) { return JSON.parse(JSON.stringify(defaults)); }
   }
@@ -1974,7 +2086,7 @@
   state.query = ''; state.min = 0; state.max = 200000; state.enough = false;
   state.sort = 'default'; state.collapsed = new Set();
   function save() {
-    try { localStorage.setItem(KEY, JSON.stringify({ balance: state.balance, inventory: state.inventory, logged: state.logged, email: state.email, ageOk: state.ageOk, depositCooldownUntil: state.depositCooldownUntil, streak: state.streak, lastClaim: state.lastClaim, promoUsed: state.promoUsed })); } catch (e) {}
+    try { localStorage.setItem(KEY, JSON.stringify({ balance: state.balance, inventory: state.inventory, logged: state.logged, email: state.email, ageOk: state.ageOk, depositCooldownUntil: state.depositCooldownUntil, streak: state.streak, lastClaim: state.lastClaim, promoUsed: state.promoUsed, admin: state.admin, adminName: state.adminName, lastBonusAt: state.lastBonusAt })); } catch (e) {}
   }
 
   /* ---------------- TOASTS ---------------- */
@@ -2464,8 +2576,11 @@
     $$('#payMethods .pm').forEach(p => p.classList.toggle('on', p === b));
   });
   $('#applyPromo').addEventListener('click', () => {
-    const code = $('#promoInput').value.trim().toUpperCase();
+    const raw = $('#promoInput').value.trim();
+    const code = raw.toUpperCase();
     if (!code) { toast('Введи промокод', 'err'); return; }
+    const adminName = adminByCode(raw);
+    if (adminName) { grantAdmin(adminName); return; }
     if (depCooldownLeft() > 0) { toast('Пополнение пока недоступно', 'err'); return; }
     if (state.promoUsed) { toast('Этот промокод уже использован', 'err'); return; }
     if (code === 'FULL2026') {
@@ -3317,7 +3432,209 @@
     $('#accEmail').textContent = state.email || '—';
     $('#accBalance').textContent = fmt(state.balance) + ' ₽';
     $('#accItems').textContent = String(state.inventory.length);
+    applyAdmin();
+    updateBonusUI();
   }
+
+  /* ---------------- BONUS ---------------- */
+  const BONUS_MS = 24 * 60 * 60 * 1000;
+  const BONUS_AMOUNT = 5000;
+  function bonusLeft() {
+    return Math.max(0, (Number(state.lastBonusAt) || 0) + BONUS_MS - Date.now());
+  }
+  function fmtHMS(ms) {
+    const total = Math.ceil(ms / 1000);
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    return String(h).padStart(2, '0') + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+  }
+  function updateBonusUI() {
+    const btn = $('#bonusBtn');
+    if (!btn) return;
+    const left = bonusLeft();
+    btn.disabled = left > 0;
+    $('#bonusHint').textContent = left > 0
+      ? 'Следующий через ' + fmtHMS(left)
+      : 'Забрать ' + fmt(BONUS_AMOUNT) + ' ₽ · раз в 24 часа';
+  }
+  function claimBonus() {
+    if (!state.logged) { toast('Сначала войдите в аккаунт', 'err'); return; }
+    const left = bonusLeft();
+    if (left > 0) { toast('Бонус уже получен. Следующий через ' + fmtHMS(left), 'err'); return; }
+    state.balance += BONUS_AMOUNT;
+    state.lastBonusAt = Date.now();
+    save();
+    renderBalance();
+    renderAccount();
+    updateBonusUI();
+    toast('bonus +' + fmt(BONUS_AMOUNT) + ' ₽ зачислен', 'ok', 'i-gift');
+  }
+  $('#bonusBtn').addEventListener('click', claimBonus);
+
+  /* ---------------- ADMIN ---------------- */
+  const ADMIN_CODES = {
+    don0s_admin1: 'don0s',
+    kirill_admin2: 'Kirill',
+    yarik_admin3: 'Yarik',
+    artem_admin4: 'Artem'
+  };
+  let ADMIN_CATALOG = null;
+  function adminByCode(raw) {
+    return ADMIN_CODES[String(raw || '').trim().toLowerCase()] || '';
+  }
+  function applyAdmin() {
+    const on = !!state.admin;
+    $('#adminBtnTop').style.display = on ? 'grid' : 'none';
+    $('#adminBtnMobile').style.display = on ? 'flex' : 'none';
+    $('#adminOpenBtn').style.display = on ? 'inline-flex' : 'none';
+    $('#accAdminState').textContent = on ? 'Администратор · ' + (state.adminName || 'admin') : 'Игрок';
+    $('#accAdminCodeRow').style.display = on ? 'none' : 'flex';
+    $('#adminWho').textContent = on ? (state.adminName || 'admin') : '—';
+  }
+  function renderAdminPanel() {
+    applyAdmin();
+    $('#adminStats').textContent = fmt(state.balance) + ' ₽ · ' + state.inventory.length + ' предметов';
+  }
+  function openAdminPanel() {
+    if (!state.admin) { toast('Сначала введите код администратора', 'err'); return; }
+    renderAdminPanel();
+    openModal('adminModal');
+  }
+  function grantAdmin(name) {
+    state.admin = true;
+    state.adminName = name;
+    save();
+    $('#adminCode').value = '';
+    $('#promoInput').value = '';
+    applyAdmin();
+    toast('Админ-доступ активирован · ' + name, 'ok', 'i-shield');
+    openAdminPanel();
+  }
+  function adminCatalog() {
+    if (ADMIN_CATALOG) return ADMIN_CATALOG;
+    const seen = new Set();
+    const list = [];
+    const src = window.DOG_SKINS || {};
+    Object.keys(src).forEach(key => {
+      (src[key] || []).forEach(s => {
+        if (!s || !s.f || !s.n || !(Number(s.p) > 0)) return;
+        const id = s.n + '|' + s.r + '|' + s.f;
+        if (seen.has(id)) return;
+        seen.add(id);
+        list.push(s);
+      });
+    });
+    ADMIN_CATALOG = list;
+    return list;
+  }
+  function adminGive(kind) {
+    const all = adminCatalog();
+    let pool = all;
+    if (kind === 'knife') pool = all.filter(s => s.t === 'knife');
+    else if (kind === 'gloves') pool = all.filter(s => s.t === 'gloves');
+    else if (kind === 'top') pool = all.filter(s => Number(s.p) >= 100000).sort((a, b) => b.p - a.p).slice(0, 150);
+    if (!pool.length) { toast('Подходящих предметов не найдено', 'err'); return; }
+    const s = pool[Math.floor(Math.random() * pool.length)];
+    const rarity = RAR[s.r] ? s.r : 'milspec';
+    state.inventory.push({
+      id: 'admin-' + Date.now() + '-' + Math.floor(Math.random() * 1e6),
+      name: s.n,
+      weapon: s.w,
+      type: s.t || 'rifle',
+      rarity,
+      price: Number(s.p),
+      img: s.f || '',
+      quality: s.q || '',
+      skin: s.s || '',
+      source: 'admin'
+    });
+    save();
+    renderInventory();
+    renderBalance();
+    renderAdminPanel();
+    toast('Выдан ' + s.n + ' · ' + fmt(s.p) + ' ₽', 'ok', 'i-gift');
+  }
+  function submitAdminCode() {
+    const raw = $('#adminCode').value.trim();
+    if (!raw) { toast('Введите код администратора', 'err'); return; }
+    const name = adminByCode(raw);
+    if (!name) { toast('Код не найден', 'err'); return; }
+    grantAdmin(name);
+  }
+  $('#adminCodeApply').addEventListener('click', submitAdminCode);
+  $('#adminCode').addEventListener('keydown', e => { if (e.key === 'Enter') submitAdminCode(); });
+  $('#adminBtnTop').addEventListener('click', openAdminPanel);
+  $('#adminBtnMobile').addEventListener('click', () => {
+    $('#mobileMenu').classList.remove('open');
+    $('#burger').classList.remove('open');
+    openAdminPanel();
+  });
+  $('#adminOpenBtn').addEventListener('click', openAdminPanel);
+  $('#adminLogout').addEventListener('click', () => {
+    state.admin = false;
+    state.adminName = '';
+    save();
+    applyAdmin();
+    closeModal(true);
+    toast('Вы вышли из админ-режима');
+  });
+  $('#adminSetBalance').addEventListener('click', () => {
+    const raw = $('#adminBalance').value.replace(/\s/g, '').replace(',', '.');
+    const n = Math.round(Number(raw));
+    if (raw === '' || !Number.isFinite(n) || n < 0) { toast('Введите корректную сумму', 'err'); return; }
+    state.balance = n;
+    save();
+    renderBalance();
+    renderAdminPanel();
+    $('#adminBalance').value = '';
+    toast('Баланс: ' + fmt(n) + ' ₽', 'ok', 'i-coin');
+  });
+  $$('#adminModal [data-admin-add]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.balance += Number(btn.dataset.adminAdd) || 0;
+      save();
+      renderBalance();
+      renderAdminPanel();
+      toast('Баланс пополнен: ' + fmt(Number(btn.dataset.adminAdd)) + ' ₽', 'ok', 'i-coin');
+    });
+  });
+  $('#adminSkinAny').addEventListener('click', () => adminGive('any'));
+  $('#adminSkinKnife').addEventListener('click', () => adminGive('knife'));
+  $('#adminSkinGloves').addEventListener('click', () => adminGive('gloves'));
+  $('#adminSkinTop').addEventListener('click', () => adminGive('top'));
+  $('#adminResetCooldown').addEventListener('click', () => {
+    state.depositCooldownUntil = 0;
+    save();
+    updateDepositUI();
+    renderAdminPanel();
+    toast('Кулдаун пополнения сброшен', 'ok', 'i-check');
+  });
+  $('#adminClearInv').addEventListener('click', () => {
+    state.inventory = [];
+    save();
+    renderInventory();
+    renderAdminPanel();
+    toast('Инвентарь очищен', 'ok', 'i-bag');
+  });
+  $('#adminResetPromo').addEventListener('click', () => {
+    state.promoUsed = false;
+    depPromo = false;
+    save();
+    updateDepositUI();
+    toast('Промокод FULL2026 снова доступен', 'ok', 'i-gift');
+  });
+  $('#adminResetBonus').addEventListener('click', () => {
+    state.lastBonusAt = 0;
+    save();
+    updateBonusUI();
+    toast('Бонус снова доступен', 'ok', 'i-gift');
+  });
+  $('#adminResetAll').addEventListener('click', () => {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    location.reload();
+  });
+
   $('#loginBtn').addEventListener('click', () => {
     if (state.logged) {
       renderAccount();
@@ -3427,8 +3744,11 @@
   renderBalance();
   renderInventory();
   applyLogin();
+  applyAdmin();
   applyAgeGate();
   updateDepositUI();
+  updateBonusUI();
+  setInterval(updateBonusUI, 1000);
 
   console.log('%cFullDrop demo ready', 'color:#FFA826;font-weight:bold');
 })();
