@@ -1655,7 +1655,8 @@
       ['Монополия', 590],
       ['Роза', 890],
       ['LV', 1290],
-      ['GTA 6', 2790, 'HOT']
+      ['GTA 6', 2790, 'HOT'],
+      ['don0s', 20000, 'NEW']
     ]},
     { id: 'limited', title: 'Лимитированные кейсы', icon: 'star', hue: 284, types: ['rifle', 'pistol', 'sniper', 'smg'], cases: [
       ['Курятник', 25],
@@ -1801,6 +1802,35 @@
 
   function buildPool(c) {
     if (c._pool) return c._pool;
+    if (c.id === 'brand-10') {
+      c._pool = [
+        {
+          id: 'brand-10-emerald',
+          name: '★ Karambit | Gamma Doppler Emerald (Factory New)',
+          weapon: 'Karambit',
+          type: 'knife',
+          rarity: 'covert',
+          price: 599703.98,
+          weight: 1,
+          img: 'assets/skins/679af0a2f1a18e.webp',
+          quality: 'FactoryNew',
+          skin: 'Гамма-волны'
+        },
+        {
+          id: 'brand-10-ak',
+          name: 'AK-47 | VariCamo Grey (Field-Tested)',
+          weapon: 'AK-47',
+          type: 'rifle',
+          rarity: 'industrial',
+          price: 3,
+          weight: 99,
+          img: 'assets/skins/1b86142f76a070.webp',
+          quality: 'FieldTested',
+          skin: 'Смешанный серый камуфляж'
+        }
+      ];
+      return c._pool;
+    }
     const real = (window.DOG_SKINS && window.DOG_SKINS[c.id]) || [];
     if (real.length) {
       const counts = {};
