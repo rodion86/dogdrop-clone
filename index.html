@@ -458,6 +458,7 @@
   .amount{padding:11px 6px;border-radius:9px;background:#0f1117;border:1px solid var(--line);font-size:12.5px;font-weight:800;color:var(--muted);transition:.16s;font-variant-numeric:tabular-nums}
   .amount:hover{border-color:var(--line-2);color:#fff}
   .amount.on{border-color:rgba(255,168,38,.55);background:rgba(255,168,38,.11);color:var(--acc-2);box-shadow:0 0 0 3px rgba(255,168,38,.06)}
+  .amount[disabled],.custom-amount input[disabled],.promo-row input[disabled],.promo-row .btn[disabled]{opacity:.45;cursor:not-allowed}
   .custom-amount{position:relative;margin-bottom:14px}
   .custom-amount input{width:100%;height:46px;background:#0f1117;border:1px solid var(--line);border-radius:10px;padding:0 38px 0 14px;font-size:15px;font-weight:800;outline:none;font-variant-numeric:tabular-nums}
   .custom-amount input:focus{border-color:rgba(255,168,38,.45)}
@@ -676,6 +677,88 @@
   .toast.out{animation:toastOut .25s ease both}
   @keyframes toastIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
   @keyframes toastOut{to{opacity:0;transform:translateX(14px)}}
+
+  /* ================= AUTH ================= */
+  .auth-field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+  .auth-field label{font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--dim)}
+  .auth-field input{height:44px;background:#0f1117;border:1px solid var(--line);border-radius:10px;padding:0 13px;font-size:13px;font-weight:700;color:var(--txt);outline:none;transition:.16s}
+  .auth-field input:focus{border-color:rgba(255,168,38,.45);box-shadow:0 0 0 3px rgba(255,168,38,.07)}
+  .auth-field input::placeholder{color:#565b6b;font-weight:600}
+  .auth-err{min-height:16px;font-size:11px;font-weight:700;color:#ff8b96;margin:-2px 0 6px}
+  .auth-note{font-size:10.5px;line-height:1.6;color:#62667a}
+  .auth-note a,.auth-note button{color:var(--acc);font-weight:700;font-size:inherit;text-decoration:underline;text-underline-offset:2px}
+  .auth-note a:hover,.auth-note button:hover{color:var(--acc-2)}
+  .acc-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:12px;color:var(--dim);font-weight:600}
+  .acc-row:last-child{border-bottom:none}
+  .acc-row b{color:#e9ebf2;font-size:12.5px;font-weight:800;text-align:right;word-break:break-all}
+  .acc-row b.acc-mail{color:var(--acc)}
+  .login-avatar{width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#ffd27a,#ff9f1a);display:grid;place-items:center;font-size:10px;font-weight:800;color:#171005;flex:none}
+  .login-mail{max-width:148px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block;vertical-align:middle}
+  .nav-right #loginBtn.is-logged{padding:8px 12px}
+  @media(max-width:900px){
+    .nav-right #loginBtn.is-logged{padding:0;width:40px;height:40px}
+    .nav-right #loginBtn.is-logged .login-mail{display:none}
+  }
+  @media(max-width:720px){.nav-right #loginBtn.is-logged{width:37px;height:37px}}
+
+  /* ================= LEGAL ================= */
+  #legalModal{z-index:320}
+  .legal-body{font-size:12px;line-height:1.7;color:#a6a9b7}
+  .legal-body h4{font-size:12.5px;font-weight:800;color:#e4e6ee;margin:16px 0 5px}
+  .legal-body h4:first-child{margin-top:0}
+  .legal-body p{margin:0 0 9px}
+  .legal-body ul{padding-left:18px;margin:0 0 9px;display:flex;flex-direction:column;gap:4px}
+  .legal-body li::marker{color:var(--acc)}
+  .legal-body b{color:#d8dae3}
+
+  /* ================= AGE GATE ================= */
+  .age-gate{position:fixed;inset:0;z-index:300;display:flex;align-items:center;justify-content:center;padding:20px;overflow:auto;background:radial-gradient(circle at 50% 0,rgba(255,138,0,.16),transparent 55%),rgba(4,5,8,.98);backdrop-filter:blur(14px)}
+  .age-gate[hidden]{display:none}
+  .age-card{width:min(490px,100%);margin:auto;text-align:center;padding:32px 26px 26px;border-radius:22px;background:linear-gradient(175deg,#191c25,#101218 72%);border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 90px rgba(0,0,0,.72),inset 0 1px 0 rgba(255,255,255,.06);animation:fadeUp .3s ease both}
+  .age-badge{display:inline-grid;place-items:center;width:68px;height:68px;border-radius:50%;border:2px solid rgba(255,168,38,.6);color:var(--acc-2);font-size:21px;font-weight:800;letter-spacing:.5px;margin-bottom:16px;background:radial-gradient(circle at 50% 35%,rgba(255,168,38,.17),transparent 70%);box-shadow:0 0 0 8px rgba(255,168,38,.06),0 0 34px rgba(255,168,38,.2)}
+  .age-card h2{font-size:23px;font-weight:800;letter-spacing:-.7px;margin-bottom:9px;line-height:1.2}
+  .age-card h2 em{font-style:normal;color:var(--acc)}
+  .age-card p{font-size:12.5px;line-height:1.65;color:#9295a5;margin-bottom:9px}
+  .age-card p.small{font-size:10.5px;color:#62667a;line-height:1.55}
+  .age-card p button{color:var(--acc);font-weight:700;font-size:inherit;text-decoration:underline;text-underline-offset:2px}
+  .age-card p button:hover{color:var(--acc-2)}
+  .age-actions{display:flex;flex-direction:column;gap:8px;margin-top:18px}
+  .age-actions .btn{width:100%}
+  .age-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin-top:16px}
+  .age-links button{font-size:10.5px;font-weight:700;color:#7d8195;text-decoration:underline;text-underline-offset:2px}
+  .age-links button:hover{color:var(--acc)}
+  .age-denied[hidden],.age-ask[hidden]{display:none}
+
+  /* ================= FAKE AD ================= */
+  .ad-screen{position:fixed;inset:0;z-index:400;background:#000;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;overflow:auto}
+  .ad-screen[hidden]{display:none}
+  .ad-screen::before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 4px);animation:adScan 9s linear infinite}
+  @keyframes adScan{to{transform:translateY(4px)}}
+  .ad-box{position:relative;width:min(640px,100%);margin:auto;padding:46px 28px 34px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.04),transparent 72%)}
+  .ad-tag{position:absolute;top:13px;left:15px;font-size:9px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#6c7080}
+  .ad-noclose{position:absolute;top:13px;right:15px;font-size:9px;font-weight:700;color:#4d5160}
+  .ad-title{font-size:clamp(24px,4.4vw,40px);font-weight:800;letter-spacing:-1.2px;line-height:1.12;color:#fff;margin-bottom:11px}
+  .ad-title em{font-style:normal;color:var(--acc)}
+  .ad-sub{font-size:12.5px;line-height:1.6;color:#8d91a1;max-width:440px;margin:0 auto 22px}
+  .ad-time{font-size:44px;font-weight:800;letter-spacing:-2px;color:var(--acc-2);font-variant-numeric:tabular-nums;line-height:1;margin-bottom:2px}
+  .ad-time small{font-size:11px;font-weight:800;letter-spacing:.3px;color:#6f7383;margin-left:4px;text-transform:uppercase}
+  .ad-sum{font-size:11px;font-weight:700;color:#777b8b;margin-bottom:2px}
+  .ad-sum b{color:var(--acc-2);font-size:13px;font-weight:800;font-variant-numeric:tabular-nums}
+  .ad-bar{height:5px;border-radius:4px;background:#20232b;overflow:hidden;margin:16px auto 12px;max-width:360px}
+  .ad-bar i{display:block;height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,var(--acc-deep),var(--acc-2));transition:width .1s linear}
+  .ad-note{font-size:10.5px;font-weight:600;color:#575b69;line-height:1.55}
+  @media(max-width:680px){
+    .ad-box{padding:42px 18px 28px}
+    .ad-time{font-size:36px}
+  }
+
+  /* ================= DEPOSIT LIMITS ================= */
+  .dep-cooldown{display:none;align-items:flex-start;gap:9px;margin:0 0 12px;padding:10px 12px;border-radius:10px;background:rgba(255,168,38,.08);border:1px solid rgba(255,168,38,.24);font-size:11px;line-height:1.5;color:#d9c6a4;font-weight:600}
+  .dep-cooldown.show{display:flex}
+  .dep-cooldown .dc-icon{flex:none;font-size:14px;line-height:1.2}
+  .dep-cooldown b{color:var(--acc-2);font-variant-numeric:tabular-nums;font-size:12px}
+  .dep-note{font-size:10.5px;line-height:1.6;color:#62667a;margin-top:12px;padding-top:11px;border-top:1px solid var(--line)}
+  .dep-note b{color:#9a9eae;font-weight:700}
 
   /* ================= RESPONSIVE ================= */
   @media(max-width:1120px){
@@ -1068,7 +1151,7 @@
 
           <h3>Как открыть первый кейс</h3>
           <ol>
-            <li>Войди через Steam и укажи ссылку на обмен в настройках профиля.</li>
+            <li>Войди по электронной почте — демо-авторизация без реальных писем.</li>
             <li>Пополни баланс удобным способом или активируй промокод.</li>
             <li>Выбери кейс в каталоге и нажми «Открыть».</li>
             <li>Забери выпавший предмет в инвентарь или сразу продай его.</li>
@@ -1143,9 +1226,9 @@
       </div>
       <div class="foot-col pay">
         <h4>О нас</h4>
-        <a href="#">Пользовательское соглашение</a>
-        <a href="#">Политика конфиденциальности</a>
-        <a href="#">Ответственная игра</a>
+        <a href="#" data-legal="terms">Пользовательское соглашение</a>
+        <a href="#" data-legal="privacy">Политика конфиденциальности</a>
+        <a href="#" data-legal="responsible">Ответственная игра</a>
         <a href="#">Партнёрская программа</a>
         <div class="pay-title">Способы оплаты</div>
         <div class="pays">
@@ -1215,14 +1298,18 @@
       <button class="modal-close" data-close aria-label="Закрыть"><svg class="ic-sm"><use href="#i-close"/></svg></button>
     </div>
     <div class="modal-body">
+      <div class="dep-cooldown" id="depCooldown">
+        <span class="dc-icon">⏳</span>
+        <span>Пополнение временно недоступно. Следующее пополнение через <b id="depCooldownTime">40:00</b></span>
+      </div>
       <div class="amounts" id="amounts">
-        <button class="amount" data-amount="500">500 ₽</button>
         <button class="amount on" data-amount="1000">1 000 ₽</button>
         <button class="amount" data-amount="2500">2 500 ₽</button>
         <button class="amount" data-amount="5000">5 000 ₽</button>
+        <button class="amount" data-amount="10000">10 000 ₽</button>
       </div>
       <div class="custom-amount">
-        <input type="number" id="customAmount" min="100" step="100" placeholder="Своя сумма" inputmode="numeric">
+        <input type="number" id="customAmount" min="1000" step="100" placeholder="Своя сумма (от 1 000 ₽)" inputmode="numeric">
         <span class="cur">₽</span>
       </div>
       <div class="mini-label">Способ оплаты</div>
@@ -1235,11 +1322,12 @@
         <input type="text" id="promoInput" placeholder="Промокод" maxlength="16">
         <button class="btn btn-ghost" id="applyPromo">Применить</button>
       </div>
-      <div class="bonus-line"><span>К зачислению</span><b id="depositTotal">1 100 ₽</b></div>
+      <div class="bonus-line"><span>К зачислению</span><b id="depositTotal">1 000 ₽</b></div>
       <div class="bonus-line" style="border:none;padding-top:4px"><span id="promoHint">Промокод не активирован</span><span style="color:var(--dim)">Промокод +10%</span></div>
+      <p class="dep-note"><b>Минимум 1 000 ₽.</b> После выбора суммы откроется рекламный блок на 15 секунд, затем баланс пополнится автоматически. Следующее пополнение будет доступно через 40 минут.</p>
     </div>
     <div class="modal-foot">
-      <button class="btn btn-primary btn-lg" id="depositSubmit">Пополнить</button>
+      <button class="btn btn-primary btn-lg" id="depositSubmit">Смотреть рекламу и пополнить</button>
     </div>
   </div>
 </div>
@@ -1371,8 +1459,8 @@
     </div>
     <div class="modal-body">
       <div class="steps">
-        <div class="step"><span class="st-n">1</span><span><b>Войди через Steam</b><p>Авторизация занимает пару секунд. В демо-версии достаточно нажать кнопку «Войти».</p></span></div>
-        <div class="step"><span class="st-n">2</span><span><b>Пополни баланс</b><p>Выбери сумму или активируй промокод KOCH2026 — бонус +10% на первый депозит.</p></span></div>
+        <div class="step"><span class="st-n">1</span><span><b>Войди по почте</b><p>Укажи электронную почту и пароль от 6 символов. Это демо-авторизация: письма не отправляются, пароль не сохраняется.</p></span></div>
+        <div class="step"><span class="st-n">2</span><span><b>Пополни баланс</b><p>Минимум 1 000 ₽. После выбора суммы показывается рекламный блок на 15 секунд, затем баланс пополняется. Следующее пополнение — через 40 минут. Промокод KOCH2026 даёт +10%.</p></span></div>
         <div class="step"><span class="st-n">3</span><span><b>Выбери кейс</b><p>Изучи содержимое и шансы, затем нажми «Открыть». Рулетка выберет предмет.</p></span></div>
         <div class="step"><span class="st-n">4</span><span><b>Забери дроп</b><p>Оставь скин в инвентаре или продай на баланс. Всё сохраняется в браузере.</p></span></div>
       </div>
@@ -1380,6 +1468,109 @@
     <div class="modal-foot">
       <button class="btn btn-primary btn-lg" data-close>Понятно</button>
     </div>
+  </div>
+</div>
+
+<!-- ===== AUTH MODAL ===== -->
+<div class="modal" id="authModal" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="modal-card sm">
+    <div class="modal-head">
+      <div><h3 id="authTitle">Вход по почте</h3><p>Демо-авторизация без реальных писем</p></div>
+      <button class="modal-close" data-close aria-label="Закрыть"><svg class="ic-sm"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="auth-field">
+        <label for="authEmail">Электронная почта</label>
+        <input type="email" id="authEmail" placeholder="player@example.com" autocomplete="email" maxlength="80">
+      </div>
+      <div class="auth-field">
+        <label for="authPass">Пароль</label>
+        <input type="password" id="authPass" placeholder="Минимум 6 символов" autocomplete="current-password" maxlength="64">
+      </div>
+      <div class="auth-err" id="authErr"></div>
+      <p class="auth-note">Пароль не сохраняется. Почта, баланс и инвентарь хранятся только в этом браузере. Входя, вы подтверждаете, что вам 18+, и принимаете <button type="button" data-legal="privacy">политику конфиденциальности</button>.</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-primary btn-lg" id="authSubmit">Войти</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== ACCOUNT MODAL ===== -->
+<div class="modal" id="accountModal" role="dialog" aria-modal="true" aria-labelledby="accTitle">
+  <div class="modal-card sm">
+    <div class="modal-head">
+      <div><h3 id="accTitle">Аккаунт</h3><p>Данные хранятся локально в браузере</p></div>
+      <button class="modal-close" data-close aria-label="Закрыть"><svg class="ic-sm"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="acc-row"><span>Почта</span><b class="acc-mail" id="accEmail">—</b></div>
+      <div class="acc-row"><span>Баланс</span><b id="accBalance">0 ₽</b></div>
+      <div class="acc-row"><span>Предметов в инвентаре</span><b id="accItems">0</b></div>
+      <div class="acc-row"><span>Возраст</span><b>18+ подтверждено</b></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="logoutBtn">Выйти из аккаунта</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEGAL MODAL ===== -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+  <div class="modal-card md">
+    <div class="modal-head">
+      <div><h3 id="legalTitle">Политика конфиденциальности</h3><p>Демонстрационный проект · 18+</p></div>
+      <button class="modal-close" data-close aria-label="Закрыть"><svg class="ic-sm"><use href="#i-close"/></svg></button>
+    </div>
+    <div class="modal-body legal-body" id="legalBody"></div>
+    <div class="modal-foot">
+      <button class="btn btn-primary btn-lg" data-close>Понятно</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== AGE GATE ===== -->
+<div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle" hidden>
+  <div class="age-card">
+    <div class="age-ask" id="ageAsk">
+      <span class="age-badge">18+</span>
+      <h2 id="ageTitle">Вам исполнилось <em>18 лет</em>?</h2>
+      <p>kochDROP — демо-сайт с виртуальными кейсами CS2. Здесь нет реальных ставок, платежей и вывода предметов, но интерфейс имитирует кейс-сайт.</p>
+      <p>Доступ разрешён только совершеннолетним. Подтверждая возраст, вы принимаете <button type="button" data-legal="terms">условия</button> и <button type="button" data-legal="privacy">политику конфиденциальности</button>.</p>
+      <p class="small">Если вам меньше 18 лет, пожалуйста, покиньте сайт. Играйте ответственно.</p>
+      <div class="age-actions">
+        <button class="btn btn-primary btn-lg" id="ageYes">Да, мне 18 или больше</button>
+        <button class="btn btn-ghost" id="ageNo">Нет, мне меньше 18</button>
+      </div>
+      <div class="age-links">
+        <button type="button" data-legal="terms">Условия</button>
+        <button type="button" data-legal="privacy">Конфиденциальность</button>
+        <button type="button" data-legal="responsible">Ответственная игра</button>
+      </div>
+    </div>
+    <div class="age-denied" id="ageDenied" hidden>
+      <span class="age-badge">18+</span>
+      <h2>Доступ закрыт</h2>
+      <p>Сайт предназначен только для пользователей старше 18 лет. Пожалуйста, закройте страницу.</p>
+      <p class="small">Если вы ошиблись, вернитесь и подтвердите возраст.</p>
+      <div class="age-actions">
+        <button class="btn btn-ghost" id="ageBack">Я старше 18</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAKE AD SCREEN ===== -->
+<div class="ad-screen" id="adScreen" role="dialog" aria-modal="true" aria-labelledby="adTitle" hidden>
+  <div class="ad-box">
+    <span class="ad-tag">Реклама</span>
+    <span class="ad-noclose">без возможности пропуска</span>
+    <div class="ad-title" id="adTitle">Тут могла быть<br><em>ваша реклама</em></div>
+    <p class="ad-sub">Сейчас рекламного блока нет, поэтому показываем заглушку. Баланс пополнится автоматически после окончания таймера.</p>
+    <div class="ad-time"><span id="adTime">15</span><small>сек</small></div>
+    <div class="ad-sum">К зачислению: <b id="adAmount">1 000 ₽</b></div>
+    <div class="ad-bar"><i id="adBar"></i></div>
+    <div class="ad-note">Не закрывайте страницу: после просмотра баланс будет зачислен, а пополнение станет недоступно на 40 минут.</div>
   </div>
 </div>
 
@@ -1730,7 +1921,7 @@
     { id: 'seed-1', name: 'AK-47 | Неоновый рассвет', weapon: 'AK-47', type: 'rifle', rarity: 'rare', price: 1450 },
     { id: 'seed-2', name: 'USP-S | Иней', weapon: 'USP-S', type: 'pistol', rarity: 'uncommon', price: 320 }
   );
-  const defaults = { balance: 5000, inventory: seedItems, logged: false, streak: 0, lastClaim: '', promoUsed: false };
+  const defaults = { balance: 5000, inventory: seedItems, logged: false, email: '', ageOk: false, depositCooldownUntil: 0, streak: 0, lastClaim: '', promoUsed: false };
   function loadState() {
     try {
       const raw = localStorage.getItem(KEY);
@@ -1739,7 +1930,11 @@
       return {
         balance: Number.isFinite(s.balance) ? s.balance : defaults.balance,
         inventory: Array.isArray(s.inventory) ? s.inventory : JSON.parse(JSON.stringify(seedItems)),
-        logged: !!s.logged, streak: Number(s.streak) || 0,
+        logged: !!s.logged && typeof s.email === 'string' && s.email.indexOf('@') > 0,
+        email: typeof s.email === 'string' ? s.email : '',
+        ageOk: !!s.ageOk,
+        depositCooldownUntil: Number(s.depositCooldownUntil) || 0,
+        streak: Number(s.streak) || 0,
         lastClaim: typeof s.lastClaim === 'string' ? s.lastClaim : '',
         promoUsed: !!s.promoUsed
       };
@@ -1749,7 +1944,7 @@
   state.query = ''; state.min = 0; state.max = 200000; state.enough = false;
   state.sort = 'default'; state.collapsed = new Set();
   function save() {
-    try { localStorage.setItem(KEY, JSON.stringify({ balance: state.balance, inventory: state.inventory, logged: state.logged, streak: state.streak, lastClaim: state.lastClaim, promoUsed: state.promoUsed })); } catch (e) {}
+    try { localStorage.setItem(KEY, JSON.stringify({ balance: state.balance, inventory: state.inventory, logged: state.logged, email: state.email, ageOk: state.ageOk, depositCooldownUntil: state.depositCooldownUntil, streak: state.streak, lastClaim: state.lastClaim, promoUsed: state.promoUsed })); } catch (e) {}
   }
 
   /* ---------------- TOASTS ---------------- */
@@ -1790,6 +1985,10 @@
   }
   function closeModal(force) {
     if (!activeModal) return;
+    if (adRunning && !force) {
+      toast('Дождитесь окончания рекламы', 'err');
+      return;
+    }
     if (spinning && activeModal.id === 'caseModal' && !force) {
       toast('Подожди, рулетка уже крутится', 'err');
       return;
@@ -1806,6 +2005,7 @@
     activeModal = null;
     $('#overlay').classList.remove('show');
     document.body.classList.remove('locked');
+    if (!$('#ageGate').hidden) document.body.classList.add('locked');
     if (pendingWin) keepPendingWin();
   }
   document.addEventListener('keydown', e => {
@@ -2163,22 +2363,65 @@
   });
 
   /* ---------------- DEPOSIT ---------------- */
+  const DEP_MIN = 1000;
+  const DEP_COOLDOWN_MS = 40 * 60 * 1000;
+  const AD_MS = 15000;
   let depAmount = 1000, depPromo = false, depMethod = 'card';
+  let adRunning = false, adTimer = 0, adPending = null, adStarted = 0;
   const depInput = $('#customAmount');
+  function depBaseAmount() {
+    const v = depInput.value.trim();
+    if (v === '') return depAmount;
+    const n = Number(v);
+    return Number.isFinite(n) ? n : 0;
+  }
   function depositTotalValue() {
-    const raw = Number(depInput.value);
-    const amount = raw > 0 ? raw : depAmount;
-    return Math.round(amount * (depPromo ? 1.1 : 1));
+    return Math.max(0, Math.round(depBaseAmount() * (depPromo ? 1.1 : 1)));
   }
   function updateDepositUI() {
     $('#depositTotal').textContent = fmt(depositTotalValue()) + ' ₽';
-    $$('#amounts .amount').forEach(b => b.classList.toggle('on', Number(b.dataset.amount) === depAmount && !Number(depInput.value)));
+    $$('#amounts .amount').forEach(b => b.classList.toggle('on', Number(b.dataset.amount) === depAmount && depInput.value.trim() === ''));
     $('#promoHint').textContent = depPromo ? 'Промокод KOCH2026 активирован · +10%' : 'Промокод не активирован';
     $('#promoHint').style.color = depPromo ? 'var(--green)' : '';
+    updateDepositCooldown();
+  }
+  function depCooldownLeft() {
+    return Math.max(0, (Number(state.depositCooldownUntil) || 0) - Date.now());
+  }
+  function fmtMMSS(ms) {
+    const total = Math.ceil(ms / 1000);
+    return String(Math.floor(total / 60)).padStart(2, '0') + ':' + String(total % 60).padStart(2, '0');
+  }
+  function updateDepositCooldown() {
+    const left = depCooldownLeft();
+    const note = $('#depCooldown');
+    const btn = $('#depositSubmit');
+    if (!note || !btn) return;
+    note.classList.toggle('show', left > 0);
+    if (left > 0) {
+      $('#depCooldownTime').textContent = fmtMMSS(left);
+      btn.disabled = true;
+      btn.textContent = 'Доступно через ' + fmtMMSS(left);
+    } else if (!adRunning) {
+      btn.disabled = false;
+      btn.textContent = 'Смотреть рекламу и пополнить';
+    }
+    const locked = left > 0;
+    $$('#amounts .amount').forEach(b => { b.disabled = locked; });
+    depInput.disabled = locked;
+    $('#promoInput').disabled = locked;
+    $('#applyPromo').disabled = locked;
+  }
+  function resetDepositForm() {
+    depPromo = false;
+    depInput.value = '';
+    depAmount = 1000;
+    $('#promoInput').value = '';
+    updateDepositUI();
   }
   $('#amounts').addEventListener('click', e => {
     const b = e.target.closest('.amount');
-    if (!b) return;
+    if (!b || b.disabled) return;
     depAmount = Number(b.dataset.amount);
     depInput.value = '';
     updateDepositUI();
@@ -2193,6 +2436,7 @@
   $('#applyPromo').addEventListener('click', () => {
     const code = $('#promoInput').value.trim().toUpperCase();
     if (!code) { toast('Введи промокод', 'err'); return; }
+    if (depCooldownLeft() > 0) { toast('Пополнение пока недоступно', 'err'); return; }
     if (state.promoUsed) { toast('Этот промокод уже использован', 'err'); return; }
     if (code === 'KOCH2026') {
       depPromo = true;
@@ -2202,23 +2446,63 @@
       toast('Промокод не найден', 'err');
     }
   });
-  $('#depositSubmit').addEventListener('click', () => {
-    const raw = Number(depInput.value);
-    const amount = Math.round(raw > 0 ? raw : depAmount);
-    if (!Number.isFinite(amount) || amount < 100) { toast('Минимальная сумма пополнения — 100 ₽', 'err'); return; }
-    const bonus = depPromo ? Math.round(amount * 0.1) : 0;
+
+  function adTick() {
+    const elapsed = Date.now() - adStarted;
+    const left = Math.max(0, AD_MS - elapsed);
+    $('#adTime').textContent = String(Math.ceil(left / 1000));
+    $('#adBar').style.width = (Math.min(1, elapsed / AD_MS) * 100) + '%';
+    if (left <= 0) {
+      clearInterval(adTimer);
+      adTimer = 0;
+      finishDepositAd();
+    }
+  }
+  function startDepositAd() {
+    if (adRunning) return;
+    const amount = Math.round(depBaseAmount());
+    if (!Number.isFinite(amount) || amount < DEP_MIN) {
+      toast('Минимальная сумма пополнения — ' + fmt(DEP_MIN) + ' ₽', 'err');
+      return;
+    }
+    if (depCooldownLeft() > 0) {
+      toast('Пополнение доступно через ' + fmtMMSS(depCooldownLeft()), 'err');
+      updateDepositCooldown();
+      return;
+    }
+    adRunning = true;
+    adPending = { amount, bonus: depPromo ? Math.round(amount * 0.1) : 0, promo: depPromo };
+    adStarted = Date.now();
+    $('#adTime').textContent = '15';
+    $('#adBar').style.width = '0%';
+    $('#adAmount').textContent = fmt(amount + (depPromo ? Math.round(amount * 0.1) : 0)) + ' ₽';
+    $('#adScreen').hidden = false;
+    document.body.classList.add('locked');
+    $('#depositSubmit').disabled = true;
+    $('#depositSubmit').textContent = 'Реклама идёт…';
+    adTick();
+    adTimer = setInterval(adTick, 100);
+  }
+  function finishDepositAd() {
+    const p = adPending;
+    adPending = null;
+    adRunning = false;
+    $('#adScreen').hidden = true;
+    if (!p) return;
+    const amount = p.amount;
+    const bonus = p.bonus;
     state.balance += amount + bonus;
-    if (depPromo) state.promoUsed = true;
-    depPromo = false;
-    depInput.value = '';
-    depAmount = 1000;
-    $('#promoInput').value = '';
+    if (p.promo) state.promoUsed = true;
+    state.depositCooldownUntil = Date.now() + DEP_COOLDOWN_MS;
+    resetDepositForm();
     save();
     renderBalance();
-    updateDepositUI();
+    updateDepositCooldown();
     closeModal(true);
     toast('Баланс пополнен на ' + fmt(amount + bonus) + ' ₽' + (bonus ? ' (бонус +' + fmt(bonus) + ')' : ''), 'ok', 'i-coin');
-  });
+  }
+  $('#depositSubmit').addEventListener('click', startDepositAd);
+  setInterval(updateDepositCooldown, 1000);
 
   /* ---------------- UPGRADE ---------------- */
   let upgradeOpen = false, upRunning = false;
@@ -2859,22 +3143,171 @@
   }
   setInterval(updateCalTimer, 30000);
 
+  /* ---------------- LEGAL / AGE GATE ---------------- */
+  const LEGAL = {
+    privacy: {
+      title: 'Политика конфиденциальности',
+      body: `
+        <h4>1. Общие положения</h4>
+        <p>kochDROP — демонстрационный проект, созданный в учебных целях. Сайт не принимает реальные платежи, не выдаёт предметы CS2 и не связан с Valve, Steam или DogDrop.</p>
+        <h4>2. Какие данные обрабатываются</h4>
+        <ul>
+          <li>адрес электронной почты, который вы указываете при входе;</li>
+          <li>виртуальный баланс, инвентарь и действия в демо-версии;</li>
+          <li>факт подтверждения возраста 18+ и время окончания кулдауна пополнения.</li>
+        </ul>
+        <p>Пароль не сохраняется и не передаётся: он используется только для проверки длины поля при входе.</p>
+        <h4>3. Где хранятся данные</h4>
+        <p>Все данные хранятся локально в вашем браузере (localStorage) и не отправляются на сервер. У проекта нет базы данных и доступа к вашей почте.</p>
+        <h4>4. Передача третьим лицам</h4>
+        <p>Данные не передаются третьим лицам. Внешне подключается только шрифт Google Fonts; запросы к нему не содержат вашу почту или данные аккаунта.</p>
+        <h4>5. Ваши права</h4>
+        <p>Вы можете удалить данные в любой момент: выйдите из аккаунта или очистите localStorage браузера. Это удалит почту, баланс и инвентарь без возможности восстановления.</p>
+        <h4>6. Возраст</h4>
+        <p>Сайт предназначен для лиц старше 18 лет. Мы не собираем данные несовершеннолетних. Если вам меньше 18 лет, покиньте сайт.</p>
+        <h4>7. Контакты</h4>
+        <p>Вопросы по обработке данных: <b>support@example.com</b>.</p>
+      `
+    },
+    terms: {
+      title: 'Пользовательское соглашение',
+      body: `
+        <h4>1. Демонстрационный режим</h4>
+        <p>kochDROP — учебное демо интерфейса кейс-сайта. Все деньги, кейсы, скины и выпадения виртуальные. Реальные платежи не принимаются, предметы не выводятся в Steam и не имеют денежной стоимости.</p>
+        <h4>2. Возраст 18+</h4>
+        <p>Пользуясь сайтом, вы подтверждаете, что вам исполнилось 18 лет. Если это не так, пожалуйста, закройте страницу.</p>
+        <h4>3. Аккаунт</h4>
+        <p>Вход по почте — демо-авторизация. Почта и пароль никуда не отправляются, пароль не сохраняется. Не используйте реальный пароль от важных сервисов.</p>
+        <h4>4. Реклама и пополнение</h4>
+        <p>Пополнение баланса имитируется: показывается заглушка рекламного блока на 15 секунд, после чего начисляется виртуальная сумма. Минимальная сумма — 1 000 ₽, следующее пополнение доступно через 40 минут. Кулдаун сохраняется в браузере.</p>
+        <h4>5. Ответственность</h4>
+        <p>Сайт предоставляется «как есть», без гарантий. Проект не является азартной игрой и не призывает к участию в азартных играх.</p>
+        <h4>6. Контент</h4>
+        <p>Названия кейсов, скинов и изображения принадлежат их правообладателям и используются только для демонстрации интерфейса.</p>
+      `
+    },
+    responsible: {
+      title: 'Ответственная игра',
+      body: `
+        <h4>Только 18+</h4>
+        <p>Сайт предназначен для совершеннолетних пользователей. Если вам меньше 18 лет, пожалуйста, покиньте его.</p>
+        <h4>Это демо, а не заработок</h4>
+        <p>kochDROP не принимает реальные деньги, не выдаёт реальные предметы и не позволяет заработать. Виртуальный баланс и инвентарь существуют только в вашем браузере.</p>
+        <h4>Контролируйте время</h4>
+        <ul>
+          <li>делайте перерывы и не проводите за сайтом слишком много времени;</li>
+          <li>не воспринимайте виртуальные выпадения как способ заработка;</li>
+          <li>если игра перестала быть развлечением, отвлекитесь или обратитесь за помощью.</li>
+        </ul>
+        <h4>Если нужна помощь</h4>
+        <p>В России работают бесплатные линии психологической помощи. Если вы чувствуете, что не можете контролировать игровое поведение, поговорите с близкими или специалистом.</p>
+        <h4>Помните</h4>
+        <p>Азартные игры могут вызывать зависимость. Никогда не играйте на деньги, которые вам нужны для других целей.</p>
+      `
+    }
+  };
+  function openLegal(kind) {
+    const item = LEGAL[kind] || LEGAL.privacy;
+    $('#legalTitle').textContent = item.title;
+    $('#legalBody').innerHTML = item.body;
+    openModal('legalModal');
+  }
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-legal]');
+    if (!t) return;
+    e.preventDefault();
+    openLegal(t.dataset.legal);
+  });
+
+  function applyAgeGate() {
+    if (state.ageOk) { $('#ageGate').hidden = true; return; }
+    $('#ageGate').hidden = false;
+    $('#ageAsk').hidden = false;
+    $('#ageDenied').hidden = true;
+    document.body.classList.add('locked');
+  }
+  $('#ageYes').addEventListener('click', () => {
+    state.ageOk = true;
+    save();
+    $('#ageGate').hidden = true;
+    document.body.classList.remove('locked');
+    toast('Возраст подтверждён. Добро пожаловать!', 'ok', 'i-check');
+  });
+  $('#ageNo').addEventListener('click', () => {
+    $('#ageAsk').hidden = true;
+    $('#ageDenied').hidden = false;
+  });
+  $('#ageBack').addEventListener('click', () => {
+    $('#ageDenied').hidden = true;
+    $('#ageAsk').hidden = false;
+  });
+
   /* ---------------- LOGIN ---------------- */
+  const loginDefaultHTML = $('#loginBtn').innerHTML;
   function applyLogin() {
     const btn = $('#loginBtn');
-    if (state.logged) {
+    if (state.logged && state.email) {
       btn.classList.remove('btn-steam');
-      btn.classList.add('btn-ghost');
-      btn.innerHTML = '<span style="width:22px;height:22px;border-radius:50%;background:linear-gradient(145deg,#ffd27a,#ff9f1a);display:grid;place-items:center;font-size:10px;font-weight:800;color:#171005;flex:none">D</span><span>demo_player</span>';
-      btn.title = 'Вы вошли как demo_player';
+      btn.classList.add('btn-ghost', 'is-logged');
+      btn.innerHTML = '<span class="login-avatar"></span><span class="login-mail"></span>';
+      btn.querySelector('.login-avatar').textContent = state.email.charAt(0).toUpperCase();
+      btn.querySelector('.login-mail').textContent = state.email;
+      btn.title = 'Аккаунт: ' + state.email;
+    } else {
+      btn.classList.remove('btn-ghost', 'is-logged');
+      btn.classList.add('btn-steam');
+      btn.innerHTML = loginDefaultHTML;
+      btn.title = 'Войти по почте';
     }
   }
-  $('#loginBtn').addEventListener('click', () => {
-    if (state.logged) { toast('Вы уже вошли как demo_player'); return; }
+  function submitAuth() {
+    const email = $('#authEmail').value.trim().toLowerCase();
+    const pass = $('#authPass').value;
+    const err = $('#authErr');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      err.textContent = 'Введите корректный адрес почты';
+      $('#authEmail').focus();
+      return;
+    }
+    if (pass.length < 6) {
+      err.textContent = 'Пароль должен быть не короче 6 символов';
+      $('#authPass').focus();
+      return;
+    }
+    err.textContent = '';
     state.logged = true;
+    state.email = email;
     save();
     applyLogin();
-    toast('Добро пожаловать, demo_player!', 'ok', 'i-steam');
+    $('#authPass').value = '';
+    closeModal(true);
+    toast('Вы вошли как ' + email, 'ok', 'i-check');
+  }
+  function renderAccount() {
+    $('#accEmail').textContent = state.email || '—';
+    $('#accBalance').textContent = fmt(state.balance) + ' ₽';
+    $('#accItems').textContent = String(state.inventory.length);
+  }
+  $('#loginBtn').addEventListener('click', () => {
+    if (state.logged) {
+      renderAccount();
+      openModal('accountModal');
+      return;
+    }
+    $('#authErr').textContent = '';
+    openModal('authModal');
+    setTimeout(() => { try { $('#authEmail').focus(); } catch (e) {} }, 80);
+  });
+  $('#authSubmit').addEventListener('click', submitAuth);
+  $('#authEmail').addEventListener('keydown', e => { if (e.key === 'Enter') $('#authPass').focus(); });
+  $('#authPass').addEventListener('keydown', e => { if (e.key === 'Enter') submitAuth(); });
+  $('#logoutBtn').addEventListener('click', () => {
+    state.logged = false;
+    state.email = '';
+    save();
+    applyLogin();
+    closeModal(true);
+    toast('Вы вышли из аккаунта');
   });
 
   /* ---------------- GLOBAL WIRING ---------------- */
@@ -2964,6 +3397,7 @@
   renderBalance();
   renderInventory();
   applyLogin();
+  applyAgeGate();
   updateDepositUI();
 
   console.log('%ckochDROP demo ready', 'color:#FFA826;font-weight:bold');
