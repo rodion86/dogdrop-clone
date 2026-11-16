@@ -1717,6 +1717,8 @@
 
   /* ---------------- STATE ---------------- */
   const KEY = 'kochdrop_demo_v1';
+  // чистка ключа от прежнего названия сайта
+  try { localStorage.removeItem('dogdrop_demo_v1'); } catch (e) {}
   const seedItems = [
     starterItem('Shadow Daggers'),
     starterItem('Crane Flight'),
